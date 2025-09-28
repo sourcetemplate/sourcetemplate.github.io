@@ -8,3 +8,13 @@ channel = "stable-25_05"
 [[deployment.rewrites]]
 from = "/*"
 to = "/index.html"
+
+[[deployment.responseHeaders]]
+path = "/*"
+name = "Cache-Control"
+value = "public, max-age=31536000"
+
+[[deployment.responseHeaders]]
+path = "/index.html"
+name = "Cache-Control"
+value = "no-cache"
