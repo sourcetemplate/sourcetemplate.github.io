@@ -8,7 +8,7 @@ const Footer = () => {
     {
       title: "Product",
       links: [
-        { name: "Features", href: "/#features" },
+        { name: "Features", href: "/documentation" },
         { name: "Pricing", href: "/pricing" },
         { name: "Documentation", href: "/documentation" },
         { name: "API", href: "/documentation" },
@@ -18,27 +18,27 @@ const Footer = () => {
       title: "Company",
       links: [
         { name: "About", href: "/about" },
-        { name: "Blog", href: "#" },
-        { name: "Careers", href: "#" },
+        { name: "Blog", href: "/about" },
+        { name: "Careers", href: "/contact" },
         { name: "Contact", href: "/contact" },
       ],
     },
     {
       title: "Community",
       links: [
-        { name: "Discord", href: "#" },
-        { name: "Forums", href: "#" },
-        { name: "Events", href: "#" },
-        { name: "Mentors", href: "#" },
+        { name: "Discord", href: "/contact" },
+        { name: "Forums", href: "/contact" },
+        { name: "Events", href: "/about" },
+        { name: "Mentors", href: "/contact" },
       ],
     },
     {
       title: "Support",
       links: [
-        { name: "Help Center", href: "#" },
-        { name: "Privacy Policy", href: "#" },
-        { name: "Terms of Service", href: "#" },
-        { name: "Status", href: "#" },
+        { name: "Help Center", href: "/contact" },
+        { name: "Privacy Policy", href: "/about" },
+        { name: "Terms of Service", href: "/about" },
+        { name: "Status", href: "/contact" },
       ],
     },
   ];
@@ -76,21 +76,12 @@ const Footer = () => {
               <ul className="space-y-2">
                 {section.links.map((link, linkIndex) => (
                   <li key={linkIndex}>
-                    {link.href.startsWith('#') || link.href === '#' ? (
-                      <a 
-                        href={link.href}
-                        className="text-muted-foreground hover:text-foreground smooth-transition"
-                      >
-                        {link.name}
-                      </a>
-                    ) : (
-                      <Link 
-                        to={link.href}
-                        className="text-muted-foreground hover:text-foreground smooth-transition"
-                      >
-                        {link.name}
-                      </Link>
-                    )}
+                    <Link 
+                      to={link.href}
+                      className="text-muted-foreground hover:text-foreground smooth-transition"
+                    >
+                      {link.name}
+                    </Link>
                   </li>
                 ))}
               </ul>

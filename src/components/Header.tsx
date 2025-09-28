@@ -8,8 +8,8 @@ const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const navigation = [
-    { name: "Features", href: "/#features" },
-    { name: "Community", href: "/#community" },
+    { name: "Features", href: "/features" },
+    { name: "Community", href: "/community" },
     { name: "Pricing", href: "/pricing" },
     { name: "About", href: "/about" },
   ];
@@ -27,23 +27,13 @@ const Header = () => {
           {/* Desktop Navigation */}
           <nav className="hidden md:flex items-center space-x-8">
             {navigation.map((item) => (
-              item.href.startsWith('#') ? (
-                <a
-                  key={item.name}
-                  href={item.href}
-                  className="text-muted-foreground hover:text-foreground smooth-transition"
-                >
-                  {item.name}
-                </a>
-              ) : (
-                <Link
-                  key={item.name}
-                  to={item.href}
-                  className="text-muted-foreground hover:text-foreground smooth-transition"
-                >
-                  {item.name}
-                </Link>
-              )
+              <Link
+                key={item.name}
+                to={item.href}
+                className="text-muted-foreground hover:text-foreground smooth-transition"
+              >
+                {item.name}
+              </Link>
             ))}
           </nav>
 
@@ -75,25 +65,14 @@ const Header = () => {
           <div className="md:hidden py-4 border-t border-border">
             <div className="flex flex-col space-y-3">
               {navigation.map((item) => (
-                item.href.startsWith('#') ? (
-                  <a
-                    key={item.name}
-                    href={item.href}
-                    className="text-muted-foreground hover:text-foreground smooth-transition px-3 py-2"
-                    onClick={() => setIsMenuOpen(false)}
-                  >
-                    {item.name}
-                  </a>
-                ) : (
-                  <Link
-                    key={item.name}
-                    to={item.href}
-                    className="text-muted-foreground hover:text-foreground smooth-transition px-3 py-2"
-                    onClick={() => setIsMenuOpen(false)}
-                  >
-                    {item.name}
-                  </Link>
-                )
+                <Link
+                  key={item.name}
+                  to={item.href}
+                  className="text-muted-foreground hover:text-foreground smooth-transition px-3 py-2"
+                  onClick={() => setIsMenuOpen(false)}
+                >
+                  {item.name}
+                </Link>
               ))}
               <div className="flex flex-col space-y-2 pt-4">
                 <AuthDialog type="signin">
