@@ -18,3 +18,15 @@ value = "public, max-age=31536000"
 path = "/index.html"
 name = "Cache-Control"
 value = "no-cache"
+
+[workflows]
+runButton = "Development Server"
+
+[[workflows.workflow]]
+name = "Development Server"
+author = 48079311
+mode = "sequential"
+
+[[workflows.workflow.tasks]]
+task = "shell.exec"
+args = "npm run dev"
